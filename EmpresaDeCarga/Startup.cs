@@ -1,3 +1,5 @@
+using EmpresaDeCarga.Models.Abstract;
+using EmpresaDeCarga.Models.Business;
 using EmpresaDeCarga.Models.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +31,8 @@ namespace EmpresaDeCarga
             var conexion = Configuration["ConnectionStrings:conexion_sqlServer"];
             services.AddDbContext<AppDbContext>(options => 
                         options.UseSqlServer(conexion));
+
+            services.AddScoped<IClienteService, ClienteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +59,7 @@ namespace EmpresaDeCarga
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Clientes}/{action=Index}/{id?}");
             });
         }
     }
