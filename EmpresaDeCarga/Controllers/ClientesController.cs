@@ -17,7 +17,7 @@ namespace EmpresaDeCarga.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexClientes()
         {
             var listClientes = await _clienteService.ObtenerCliente();
             return View(await _clienteService.ObtenerCliente());
@@ -37,16 +37,43 @@ namespace EmpresaDeCarga.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditarClientes()
+        public async Task<IActionResult> EditarClientes(int id = 0)
         {
-            return View();
+            return View(await _clienteService.ObtenerClienteId(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditarClientes(Cliente cliente)
+        public async Task<IActionResult> EditarClientes(int? id, Cliente cliente)
         {
-            await _clienteService.GuardarCliente(cliente);
-            return RedirectToAction("IndexClientes");
+            if (ModelState.IsValid)
+            {
+                if (id == 0)
+                {
+                    await _clienteService.GuardarCliente(cliente);
+                    return RedirectToAction("IndexClientes");
+                }
+                else
+                {
+                    if (id != cliente.CasilleroId)
+                    {
+                        return NotFound();
+                    }
+                    try
+                    {
+                        await _clienteService.EditarClientes(cliente);
+                        return RedirectToAction("IndexClientes");
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+            else
+            {
+                return View(cliente);
+            }
+
         }
     }
 }

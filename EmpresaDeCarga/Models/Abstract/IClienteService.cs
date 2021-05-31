@@ -1,4 +1,5 @@
 ﻿using EmpresaDeCarga.Models.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace EmpresaDeCarga.Models.Abstract
     {
         Task<IEnumerable<Cliente>> ObtenerCliente();
         Task GuardarCliente(Cliente cliente);
+        Task<Cliente> ObtenerClienteId(int id);
+        Task EditarClientes(Cliente cliente);
     }
 }

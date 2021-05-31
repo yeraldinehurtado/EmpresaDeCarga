@@ -1,6 +1,7 @@
 ﻿using EmpresaDeCarga.Models.Abstract;
 using EmpresaDeCarga.Models.DAL;
 using EmpresaDeCarga.Models.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -27,5 +28,17 @@ namespace EmpresaDeCarga.Models.Business
             _context.Add(cliente);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Cliente> ObtenerClienteId(int id)
+        {
+            return await _context.clientes.FirstOrDefaultAsync(x => x.CasilleroId == id);
+        }
+
+        public async Task EditarClientes(Cliente cliente)
+        {
+            _context.Update(cliente);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }
