@@ -1,4 +1,5 @@
 ﻿using EmpresaDeCarga.Models.Abstract;
+using EmpresaDeCarga.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,24 @@ namespace EmpresaDeCarga.Controllers
             _clienteService = clienteService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var listClientes = await _clienteService.ObtenerCliente();
             return View(await _clienteService.ObtenerCliente());
+        }
+
+        [HttpGet]
+        public IActionResult RegistrarClientes()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RegistrarClientes(Cliente cliente)
+        {
+            await _clienteService.GuardarCliente(cliente);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -5,7 +5,7 @@
 }
 
 @section Styles{
-
+    <link href="~/css/ClienteIndex.css" rel="stylesheet" />
 }
 
 <div class="content-header">
@@ -26,12 +26,13 @@
 
 <section class="content">
     <div class="container-fluid">
-
-
-        <br />
-        <p>
-            <a asp-action="CrearEditarCliente" class="btn btn-success"><i class="fas fa-user-plus"></i> Agregar un nuevo cliente</a>
-        </p>
+        <div class="botonCrear">
+            <br />
+            <p>
+                <a asp-action="RegistrarClientes" class="btn btn-light"><i class="fas fa-plus"></i>Agregar un nuevo cliente</a>
+            </p>   
+            <br />
+        </div>
         <table class="table" id="tabla">
             <thead>
                 <tr>
@@ -47,14 +48,14 @@
                     <th>
                         @Html.DisplayNameFor(model => model.DireccionEntrega)
                     </th>
-                    
+
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var x in Model)
                 {
-                    <tr>                        
+                    <tr>
                         <td>
                             @Html.DisplayFor(modelx => x.CasilleroId)
                         </td>
@@ -65,13 +66,13 @@
                             @Html.DisplayFor(modelx => x.Correo)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelx => x.DireccionEntrega)                        
+                            @Html.DisplayFor(modelx => x.DireccionEntrega)
                         </td>
                         <td>
-                            <a class="text-success" asp-action="CrearEditarCliente" asp-route-id="@x.CasilleroId"><i class="fas fa-user-edit"></i> Editar </a> |
-                            <a asp-action="DetalleCliente" asp-route-id="@x.CasilleroId"><i class="fas fa-search-plus"></i> Detalle</a> 
+                            <a asp-action="EditarCliente" asp-route-id="@x.CasilleroId" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
+                            <a asp-action="DetalleCliente" asp-route-id="@x.CasilleroId" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
                             <form asp-action="EliminarCliente" asp-route-id="@x.CasilleroId" class="d-inline">
-                                <button type="submit" onclick="confirm('¿Desea eliminar?')" class="btn btn-danger"><i class="fas fa-user-minus"></i>Eliminar</button>
+                                <button type="submit" onclick="confirm('¿Desea eliminar?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>

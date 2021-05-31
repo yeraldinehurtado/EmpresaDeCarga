@@ -21,5 +21,11 @@ namespace EmpresaDeCarga.Models.Business
         {
             return await _context.clientes.ToListAsync();
         }
+
+        public async Task GuardarCliente(Cliente cliente)
+        {
+            _context.Add(cliente);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace EmpresaDeCarga.Models.Entities
 
         public string Correo { get; set; }
 
+        [Required(ErrorMessage = "La dirección es requerida")]
         public string DireccionEntrega { get; set; }
     }
 }

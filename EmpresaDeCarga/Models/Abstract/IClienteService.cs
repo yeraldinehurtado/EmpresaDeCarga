@@ -9,5 +9,6 @@ namespace EmpresaDeCarga.Models.Abstract
     public interface IClienteService
     {
         Task<IEnumerable<Cliente>> ObtenerCliente();
+        Task GuardarCliente(Cliente cliente);
     }
 }
