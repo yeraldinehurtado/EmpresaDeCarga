@@ -33,7 +33,20 @@ namespace EmpresaDeCarga.Controllers
         public async Task<IActionResult> RegistrarClientes(Cliente cliente)
         {
             await _clienteService.GuardarCliente(cliente);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexClientes");
+        }
+
+        [HttpGet]
+        public IActionResult EditarClientes()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditarClientes(Cliente cliente)
+        {
+            await _clienteService.GuardarCliente(cliente);
+            return RedirectToAction("IndexClientes");
         }
     }
 }
