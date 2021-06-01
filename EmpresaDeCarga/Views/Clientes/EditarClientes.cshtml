@@ -4,6 +4,10 @@
     ViewData["Title"] = "EditarClientes";
 }
 
+@section Styles{
+    <link href="~/css/EditarCliente.css" rel="stylesheet" />
+}
+
 <h1>Editar cliente</h1>
 <hr />
 <div class="row">
@@ -25,7 +29,7 @@
                 <label asp-for="DireccionEntrega" class="control-label"></label>
                 <input asp-for="DireccionEntrega" class="form-control" />
                 <span asp-validation-for="DireccionEntrega" class="text-danger"></span>
-            </div>            
+            </div>
             <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>

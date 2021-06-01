@@ -75,5 +75,15 @@ namespace EmpresaDeCarga.Controllers
             }
 
         }
+
+        public async Task<IActionResult> DetallesCliente(int? id)
+        {
+            if (id != null)
+            {
+                return View(await _clienteService.ObtenerClienteId(id.Value));
+            }
+
+            return NotFound();
+        }
     }
 }

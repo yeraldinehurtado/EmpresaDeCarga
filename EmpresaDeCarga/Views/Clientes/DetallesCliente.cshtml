@@ -1,0 +1,33 @@
+﻿@model EmpresaDeCarga.Models.Entities.Cliente
+
+@{
+    ViewData["Title"] = "DetallesCliente";
+}
+
+@section Styles{
+    <link href="~/css/DetalleCliente.css" rel="stylesheet" />
+}
+
+<h1>Detalle del cliente</h1>
+<hr />
+<<div class="row">
+    <div class="col-md-4">
+        <form asp-route-id="@Model.CasilleroId">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label"><strong>Nombre: </strong> @Model.Nombre</label>
+            </div>
+            <div class="form-group">
+                <label class="control-label"><strong>Correo: </strong> @Model.Correo</label>
+            </div>
+            <div class="form-group">
+                <label class="control-label"><strong>Dirección de entrega: </strong>@Model.DireccionEntrega</label>
+            </div>            
+            <a asp-action="EditarClientes" asp-route-id="@Model.CasilleroId">Editar</a> |
+            <a asp-action="IndexClientes">Volver</a>
+        </form>
+    </div>
+</div>
+ <div>
+     <a asp-action="IndexClientes">volver</a>
+ </div>

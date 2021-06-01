@@ -70,7 +70,7 @@
                         </td>
                         <td>
                             <a asp-action="EditarClientes" asp-route-id="@x.CasilleroId" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
-                            <a asp-action="DetalleCliente" asp-route-id="@x.CasilleroId" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
+                            <a asp-action="DetallesCliente" asp-route-id="@x.CasilleroId" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
                             <form asp-action="EliminarCliente" asp-route-id="@x.CasilleroId" class="d-inline">
                                 <button type="submit" onclick="confirm('¿Desea eliminar?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
                             </form>
