@@ -39,6 +39,12 @@ namespace EmpresaDeCarga.Models.Business
             _context.Update(cliente);
             await _context.SaveChangesAsync();
         }
+        public async Task EliminarCliente(int id)
+        {
+            var cliente = await ObtenerClienteId(id);
+            _context.Remove(cliente);
+            await _context.SaveChangesAsync();
+        }
 
     }
 }

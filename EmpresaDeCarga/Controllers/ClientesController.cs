@@ -85,5 +85,20 @@ namespace EmpresaDeCarga.Controllers
 
             return NotFound();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> EliminarCliente(int id)
+        {
+            try
+            {
+                await _clienteService.EliminarCliente(id);
+                return RedirectToAction(nameof(IndexClientes));
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+
+        }
     }
 }
