@@ -23,7 +23,7 @@
                 @RenderBody()
             </main>
         </div>
-    </div>   
+    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -31,13 +31,10 @@
         </div>
     </footer>
 
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
     <script src="~/adminlte/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
     <script src="~/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
     <script src="~/adminlte/dist/js/adminlte.min.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
