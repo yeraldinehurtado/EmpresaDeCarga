@@ -7,5 +7,6 @@ namespace EmpresaDeCarga.Models.Entities
 {
     public class Paquete
     {
+        public int MyProperty { get; set; }
     }
 }
