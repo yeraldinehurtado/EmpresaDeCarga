@@ -5,13 +5,14 @@
 }
 
 @section Styles{
-    <link href="~/css/DetalleCliente.css" rel="stylesheet" />
+    
 }
 
-<h2>Detalle del cliente</h2>
-<hr />
+
 <div class="row">
     <div class="col-md-6">
+        <h2>Detalle del cliente</h2>
+        <hr />
         <form asp-route-id="@Model.CasilleroId">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -22,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Dirección de entrega: @Model.DireccionEntrega</label>
-            </div>            
+            </div>
             <a asp-action="EditarClientes" asp-route-id="@Model.CasilleroId">Editar</a> |
             <a asp-action="IndexClientes">Volver</a>
         </form>

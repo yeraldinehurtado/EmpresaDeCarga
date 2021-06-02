@@ -5,13 +5,14 @@
 }
 
 @section Styles{
-    <link href="~/css/EditarCliente.css" rel="stylesheet" />
+    
 }
 
-<h1>Editar cliente</h1>
-<hr />
+
 <div class="row">
     <div class="col-md-4">
+        <h1>Editar cliente</h1>
+        <hr />
         <form asp-action="EditarClientes">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CasilleroId" />
