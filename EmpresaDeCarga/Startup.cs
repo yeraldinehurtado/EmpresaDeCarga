@@ -59,7 +59,7 @@ namespace EmpresaDeCarga
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Clientes}/{action=IndexClientes}/{id?}");
+                    pattern: "{controller=Admin}/{action=Dashboard}/{id?}");
             });
         }
     }
