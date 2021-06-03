@@ -11,6 +11,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+    <link href="~/css/estilos.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
 </head>
 
@@ -18,14 +19,14 @@
     <div class="wrapper">
         <partial name="_Navbar" />
         <partial name="_Sidebar" />
-        <div class="content-wrapper">
+        <div class="content-wrapper accent-maroon">
             <main role="main" class="content">
                 @RenderBody()
             </main>
         </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-dark">
         <div class="container">
             <partial name="Footer" />
         </div>
