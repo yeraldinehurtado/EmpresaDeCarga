@@ -5,27 +5,35 @@
 }
 
 @section Styles{
-    
+    <style>
+        .detalle{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align:center;
+            margin-top: 20%;
+        }
+    </style>
 }
 
 
-<div class="row">
+<div class="m-0 row justify-content-center align-items-center">
     <div class="col-md-6">
-        <h2>Detalle del cliente</h2>
-        <hr />
-        <form asp-route-id="@Model.CasilleroId">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">Nombre: @Model.Nombre</label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Correo: @Model.Correo</label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Dirección de entrega: @Model.DireccionEntrega</label>
-            </div>
-            <a asp-action="EditarClientes" asp-route-id="@Model.CasilleroId">Editar</a> |
-            <a asp-action="IndexClientes">Volver</a>
-        </form>
+        <div class="detalle">
+            <h2>Detalle del cliente</h2>
+            <hr />
+            <form asp-route-id="@Model.CasilleroId">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Nombre: @Model.Nombre</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Correo: @Model.Correo</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Dirección de entrega: @Model.DireccionEntrega</label>
+                </div>
+                <a asp-action="EditarClientes" asp-route-id="@Model.CasilleroId">Editar</a> |
+                <a asp-action="IndexClientes">Volver</a>
+            </form>
+        </div>
     </div>
 </div>
