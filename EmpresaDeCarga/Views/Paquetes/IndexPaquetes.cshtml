@@ -1,7 +1,7 @@
-﻿@model IEnumerable<EmpresaDeCarga.Models.Entities.Cliente>
+﻿@model IEnumerable<EmpresaDeCarga.Models.Entities.Paquete>
 
 @{
-    ViewData["Title"] = "IndexClientes";
+    ViewData["Title"] = "IndexPaquetes";
 }
 
 @section Styles{
@@ -27,7 +27,7 @@
                 <div class="botonCrear col-12 p-3 text-center accent-teal">
                     <br />
                     <p>
-                        <a asp-action="RegistrarClientes" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar cliente</a>
+                        <a asp-action="Registrarpaquetes" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar paquete</a>
                     </p>
                     <br />
                 </div>
@@ -36,16 +36,34 @@
                         <thead>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.CasilleroId)
+                                    @Html.DisplayNameFor(model => model.Codigo)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Nombre)
+                                    @Html.DisplayNameFor(model => model.PesoLibras)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Correo)
+                                    @Html.DisplayNameFor(model => model.NombreCliente)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.DireccionEntrega)
+                                    @Html.DisplayNameFor(model => model.Estado)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NoGuiaUsa)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EmpresaUsa)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TipoMercancia)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NoGuiaCol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EmpresaCol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ValorPago)
                                 </th>
 
                                 <th></th>
@@ -54,27 +72,45 @@
                         <tbody>
                             @foreach (var x in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.CasilleroId)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.Nombre)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.Correo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.DireccionEntrega)
-                                    </td>
-                                    <td>
-                                        <a asp-action="EditarClientes" asp-route-id="@x.CasilleroId" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
-                                        <a asp-action="DetallesCliente" asp-route-id="@x.CasilleroId" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
-                                        <form asp-action="EliminarCliente" asp-route-id="@x.CasilleroId" class="d-inline">
-                                            <button type="submit" onclick="confirm('¿Desea eliminar este cliente?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.Codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.PesoLibras)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.NombreCliente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.Estado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.NoGuiaUsa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.EmpresaUsa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.TipoMercancia)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.NoGuiaCol)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.EmpresaCol)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.ValorPago)
+                                </td>
+                                <td>
+                                    <a asp-action="EditarPaquetes" asp-route-id="@x.Codigo" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
+                                    <a asp-action="DetallesPaquete" asp-route-id="@x.Codigo" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
+                                    <form asp-action="EliminarPaquete" asp-route-id="@x.Codigo" class="d-inline">
+                                        <button type="submit" onclick="confirm('¿Desea eliminar este paquete?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>
