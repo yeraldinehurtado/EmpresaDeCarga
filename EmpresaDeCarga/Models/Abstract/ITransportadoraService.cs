@@ -10,5 +10,9 @@ namespace EmpresaDeCarga.Models.Abstract
     {
         Task<IEnumerable<Transportadora>> ObtenerTransportadoras();
         Task GuardarTransportadora(Transportadora transportadora);
+        Task<Transportadora> ObtenerTransportadoraId(int id);
+        Task EditarTransportadoras(Transportadora transportadora);
+        Task EliminarTransportadora(int id);
+
     }
 }

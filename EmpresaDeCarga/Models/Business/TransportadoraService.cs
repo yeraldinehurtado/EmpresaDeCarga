@@ -29,6 +29,24 @@ namespace EmpresaDeCarga.Models.Business
             _context.Add(transportadora);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Transportadora> ObtenerTransportadoraId(int id)
+        {
+            return await _context.transportadoras.FindAsync(id);
+        }
+
+        public async Task EditarTransportadoras(Transportadora transportadora)
+        {
+            _context.Update(transportadora);
+            await _context.SaveChangesAsync();
+        }
+        public async Task EliminarTransportadora(int id)
+        {
+            var transportadora = await ObtenerTransportadoraId(id);
+            _context.Remove(transportadora);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }
 

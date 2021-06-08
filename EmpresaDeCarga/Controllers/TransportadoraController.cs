@@ -36,5 +36,58 @@ namespace EmpresaDeCarga.Controllers
             await _transportadoraService.GuardarTransportadora(transportadora);
             return RedirectToAction("IndexTransportadoras");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditarTransportadoras(int id = 0)
+        {
+            return View(await _transportadoraService.ObtenerTransportadoraId(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditarTransportadoras(int? id, Transportadora transportadora)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id == 0)
+                {
+                    await _transportadoraService.GuardarTransportadora(transportadora);
+                    return RedirectToAction("IndexTransportadoras");
+                }
+                else
+                {
+                    if (id != transportadora.TransportadoraId)
+                    {
+                        return NotFound();
+                    }
+                    try
+                    {
+                        await _transportadoraService.EditarTransportadoras(transportadora);
+                        return RedirectToAction("IndexTransportadoras");
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+            else
+            {
+                return View(transportadora);
+            }
+
+        }
+        public async Task<IActionResult> EliminarTransportadora(int id)
+        {
+            try
+            {
+                await _transportadoraService.EliminarTransportadora(id);
+                return RedirectToAction(nameof(IndexTransportadoras));
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+
+        }
     }
 }
