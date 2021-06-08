@@ -21,5 +21,27 @@ namespace EmpresaDeCarga.Models.Business
         {
             return await _context.paquetes.ToListAsync();
         }
+
+        public async Task GuardarPaquete(Paquete paquete)
+        {
+            _context.Add(paquete);
+            await _context.SaveChangesAsync();
+        }
+        public async Task EditarPaquete(Paquete paquete)
+        {
+            _context.Update(paquete);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Paquete> ObtenerPaquetePorId(string id)
+        {
+            return await _context.paquetes.FindAsync(id);
+        }
+        public async Task EliminarPaquete(string id)
+        {
+            var paquete = await ObtenerPaquetePorId(id);
+            _context.Remove(paquete);
+            await _context.SaveChangesAsync();
+        }
     }
 }

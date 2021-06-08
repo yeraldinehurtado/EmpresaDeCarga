@@ -27,7 +27,7 @@
                 <div class="botonCrear col-12 p-3 text-center accent-teal">
                     <br />
                     <p>
-                        <a asp-action="Registrarpaquetes" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar paquete</a>
+                        <a asp-action="RegistrarPaquetes" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar paquete</a>
                     </p>
                     <br />
                 </div>
@@ -46,24 +46,6 @@
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Estado)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.NoGuiaUsa)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.EmpresaUsa)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.TipoMercancia)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.NoGuiaCol)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.EmpresaCol)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.ValorPago)
                                 </th>
 
                                 <th></th>
@@ -84,24 +66,6 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelx => x.Estado)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelx => x.NoGuiaUsa)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelx => x.EmpresaUsa)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelx => x.TipoMercancia)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelx => x.NoGuiaCol)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelx => x.EmpresaCol)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelx => x.ValorPago)
                                 </td>
                                 <td>
                                     <a asp-action="EditarPaquetes" asp-route-id="@x.Codigo" class="btn alert-primary"><i class="fas fa-edit"></i></a> |

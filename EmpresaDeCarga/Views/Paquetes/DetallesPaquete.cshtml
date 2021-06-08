@@ -1,0 +1,61 @@
+﻿
+@model EmpresaDeCarga.Models.Entities.Paquete
+
+@{
+    ViewData["Title"] = "DetallesPaquete";
+}
+
+@section Styles{
+    <style>
+        .detalle {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+}
+
+
+<div class="m-0 row justify-content-center align-items-center">
+    <div class="col-md-6">
+        <div class="detalle">
+            <h2>Detalle del paquete</h2>
+            <hr />
+            <form asp-route-id="@Model.Codigo">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Código: @Model.Codigo</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Peso en libras: @Model.PesoLibras</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nombre cliente: @Model.NombreCliente</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Estado: @Model.Estado</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Número guia usa: @Model.NoGuiaUsa</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Empresa transportadora usa: @Model.EmpresaUsa</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tipo de mercancia: @Model.TipoMercancia</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Número guia Colombia: @Model.NoGuiaCol</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Empresa Colombia: @Model.EmpresaCol</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Valor pago: @Model.ValorPago</label>
+                </div>
+                <a asp-action="EditarPaquetes" asp-route-id="@Model.Codigo">Editar</a> |
+                <a asp-action="IndexPaquetes">Volver</a>
+            </form>
+        </div>
+    </div>
+</div>

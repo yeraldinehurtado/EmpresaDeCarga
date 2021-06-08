@@ -13,5 +13,6 @@ namespace EmpresaDeCarga.Models.Abstract
         Task GuardarCliente(Cliente cliente);
         Task<Cliente> ObtenerClienteId(int id);
         Task EditarClientes(Cliente cliente);
+        Task EliminarCliente(int id);
     }
 }
