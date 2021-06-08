@@ -34,7 +34,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a asp-action="IndexClientes" asp-controller="Clientes" class="nav-link">
                         <i class="far fa-user-circle"></i>
@@ -42,11 +42,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                        <i class="fas fa-box-open"></i>
+                    <a asp-action="IndexPaquetes" asp-controller="Paquetes" class="nav-link">
+                        <i class="far fa-user-circle"></i>
                         <p>Paquetes</p>
                     </a>
                 </li>
-                
+                <li class="nav-item">
+                    <i class="fas fa-box-open"></i>
+                    <p>Paquetes</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
