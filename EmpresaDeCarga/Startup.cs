@@ -33,6 +33,8 @@ namespace EmpresaDeCarga
                         options.UseSqlServer(conexion));
 
             services.AddScoped<IClienteService, ClienteService>();
+
+            services.AddScoped<IPaqueteService, PaqueteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +62,12 @@ namespace EmpresaDeCarga
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Admin}/{action=Dashboard}/{id?}");
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Paquetes}/{action=IndexPaquetes}/{id?}");
             });
         }
     }

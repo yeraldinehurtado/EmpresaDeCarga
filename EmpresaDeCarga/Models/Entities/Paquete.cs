@@ -10,6 +10,7 @@ namespace EmpresaDeCarga.Models.Entities
     public class Paquete
     {
         [Key]
+        [Required(ErrorMessage = "El código es requerido.")]
         public string Codigo { get; set; }
         [Required(ErrorMessage = "El peso es requerido.")]
         public double PesoLibras { get; set; }
