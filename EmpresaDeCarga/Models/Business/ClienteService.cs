@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmpresaDeCarga.Models.Business
 {
-    public class ClienteService: IClienteService
+    public class ClienteService : IClienteService
     {
         private readonly AppDbContext _context;
         public ClienteService(AppDbContext context)

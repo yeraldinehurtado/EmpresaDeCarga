@@ -1,7 +1,7 @@
-﻿@model IEnumerable<EmpresaDeCarga.Models.Entities.Paquete>
+﻿@model IEnumerable<EmpresaDeCarga.Models.Entities.Transportadora>
 
 @{
-    ViewData["Title"] = "IndexPaquetes";
+    ViewData["Title"] = "IndexTransportadoras";
 }
 
 @section Styles{
@@ -27,7 +27,7 @@
                 <div class="botonCrear col-12 p-3 text-center accent-teal">
                     <br />
                     <p>
-                        <a asp-action="RegistrarPaquetes" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar paquete</a>
+                        <a asp-action="RegistrarTransportadoras" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar transportadora</a>
                     </p>
                     <br />
                 </div>
@@ -36,17 +36,12 @@
                         <thead>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Codigo)
+                                    @Html.DisplayNameFor(model => model.TransportadoraId)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.PesoLibras)
+                                    @Html.DisplayNameFor(model => model.Nombre)
                                 </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.NombreCliente)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Estado)
-                                </th>
+                                
 
                                 <th></th>
                             </tr>
@@ -56,22 +51,16 @@
                             {
                                 <tr>
                                     <td>
-                                        @Html.DisplayFor(modelx => x.Codigo)
+                                        @Html.DisplayFor(modelx => x.TransportadoraId)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelx => x.PesoLibras)
+                                        @Html.DisplayFor(modelx => x.Nombre)
                                     </td>
+                                    
                                     <td>
-                                        @Html.DisplayFor(modelx => x.NombreCliente)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.Estado)
-                                    </td>
-                                    <td>
-                                        <a asp-action="EditarPaquetes" asp-route-id="@x.Codigo" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
-                                        <a asp-action="DetallesPaquete" asp-route-id="@x.Codigo" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
-                                        <form asp-action="EliminarPaquete" asp-route-id="@x.Codigo" class="d-inline">
-                                            <button type="submit" onclick="confirm('¿Desea eliminar este paquete?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
+                                        <a asp-action="EditarTransportadoras" asp-route-id="@x.TransportadoraId" class="btn alert-primary"><i class="fas fa-edit"></i></a> |                                      
+                                        <form asp-action="EliminarTransportadora" asp-route-id="@x.TransportadoraId" class="d-inline">
+                                            <button type="submit" onclick="confirm('¿Desea eliminar esta transportadora?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </td>
                                 </tr>
