@@ -10,6 +10,7 @@ namespace EmpresaDeCarga.Models.Entities
     public class Paquete
     {
         [Key]
+        public int PaqueteId { get; set; }
         [Required(ErrorMessage = "El código es requerido.")]
         public string Codigo { get; set; }
         [Required(ErrorMessage = "El peso es requerido.")]
@@ -17,17 +18,17 @@ namespace EmpresaDeCarga.Models.Entities
         [Required(ErrorMessage = "El número de casillero es requerido.")]
         public string NombreCliente { get; set; }
         [Required(ErrorMessage = "El estado es requerido.")]
-        public string Estado { get; set; }
+        public int EstadoId { get; set; }
         [Required(ErrorMessage = "El número de guía es requerido.")]
         public int NoGuiaUsa { get; set; }
         [Required(ErrorMessage = "La empresa es requerida.")]
-        public string EmpresaUsa { get; set; }
+        public int EmpresaUsa { get; set; }
         [Required(ErrorMessage = "El tipo de mercancia es requerida.")]
         public string TipoMercancia { get; set; }
         [Required(ErrorMessage = "El número de guía es requerido.")]
         public int NoGuiaCol { get; set; }
         [Required(ErrorMessage = "La empresa es requerida.")]
-        public string EmpresaCol { get; set; }
+        public int EmpresaCol { get; set; }
         
         public double ValorPago { get; set; }
         

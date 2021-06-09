@@ -21,7 +21,7 @@
         <div class="detalle">
             <h2>Detalle del paquete</h2>
             <hr />
-            <form asp-route-id="@Model.Codigo">
+            <form asp-route-id="@Model.PaqueteId">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label class="control-label">Código: @Model.Codigo</label>
@@ -33,13 +33,13 @@
                     <label class="control-label">Nombre cliente: @Model.NombreCliente</label>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Estado: @Model.Estado</label>
+                    <label class="control-label">Estado: @Model.EstadoId</label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Número guia usa: @Model.NoGuiaUsa</label>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Empresa transportadora usa: @Model.EmpresaUsa</label>
+                    <label class="control-label">Empresa transportadora usa: @Model.PaqueteId</label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Tipo de mercancia: @Model.TipoMercancia</label>

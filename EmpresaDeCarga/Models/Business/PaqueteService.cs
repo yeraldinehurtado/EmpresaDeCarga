@@ -17,7 +17,7 @@ namespace EmpresaDeCarga.Models.Business
             _context = context;         
         }
 
-        public async Task <IEnumerable<Paquete>> ObtenerPaquetes()
+        public async Task<IEnumerable<Paquete>> ObtenerPaquete()
         {
             return await _context.paquetes.ToListAsync();
         }
@@ -27,19 +27,20 @@ namespace EmpresaDeCarga.Models.Business
             _context.Add(paquete);
             await _context.SaveChangesAsync();
         }
-        public async Task EditarPaquete(Paquete paquete)
+
+        public async Task<Paquete> ObtenerPaqueteId(int id)
+        {
+            return await _context.paquetes.FindAsync(id);
+        }
+
+        public async Task EditarPaquetes(Paquete paquete)
         {
             _context.Update(paquete);
             await _context.SaveChangesAsync();
         }
-
-        public async Task<Paquete> ObtenerPaquetePorId(string id)
+        public async Task EliminarPaquete(int id)
         {
-            return await _context.paquetes.FindAsync(id);
-        }
-        public async Task EliminarPaquete(string id)
-        {
-            var paquete = await ObtenerPaquetePorId(id);
+            var paquete = await ObtenerPaqueteId(id);
             _context.Remove(paquete);
             await _context.SaveChangesAsync();
         }

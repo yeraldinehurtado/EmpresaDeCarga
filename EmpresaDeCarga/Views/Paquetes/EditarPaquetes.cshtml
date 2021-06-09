@@ -21,7 +21,12 @@
             <hr />
             <form asp-action="EditarPaquetes">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Codigo" />
+                <input type="hidden" asp-for="PaqueteId" />
+                <div class="form-group">
+                    <label asp-for="Codigo" class="control-label"></label>
+                    <input asp-for="Codigo" class="form-control" />
+                    <span asp-validation-for="Codigo" class="text-danger"></span>
+                </div>
                 <div class="form-group">
                     <label asp-for="PesoLibras" class="control-label"></label>
                     <input asp-for="PesoLibras" class="form-control" />
@@ -33,9 +38,9 @@
                     <span asp-validation-for="NombreCliente" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Estado" class="control-label"></label>
-                    <input asp-for="Estado" class="form-control" />
-                    <span asp-validation-for="Estado" class="text-danger"></span>
+                    <label asp-for="EstadoId" class="control-label"></label>
+                    <input asp-for="EstadoId" class="form-control" />
+                    <span asp-validation-for="EstadoId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="NoGuiaUsa" class="control-label"></label>

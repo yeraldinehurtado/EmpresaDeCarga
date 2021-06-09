@@ -36,6 +36,9 @@
                         <thead>
                             <tr>
                                 <th>
+                                    @Html.DisplayNameFor(model => model.PaqueteId)
+                                </th>
+                                <th>
                                     @Html.DisplayNameFor(model => model.Codigo)
                                 </th>
                                 <th>
@@ -45,7 +48,7 @@
                                     @Html.DisplayNameFor(model => model.NombreCliente)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Estado)
+                                    @Html.DisplayNameFor(model => model.EstadoId)
                                 </th>
 
                                 <th></th>
@@ -54,27 +57,30 @@
                         <tbody>
                             @foreach (var x in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.Codigo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.PesoLibras)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.NombreCliente)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelx => x.Estado)
-                                    </td>
-                                    <td>
-                                        <a asp-action="EditarPaquetes" asp-route-id="@x.Codigo" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
-                                        <a asp-action="DetallesPaquete" asp-route-id="@x.Codigo" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
-                                        <form asp-action="EliminarPaquete" asp-route-id="@x.Codigo" class="d-inline">
-                                            <button type="submit" onclick="confirm('¿Desea eliminar este paquete?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.PaqueteId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.Codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.PesoLibras)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.NombreCliente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelx => x.EstadoId)
+                                </td>
+                                <td>
+                                    <a asp-action="EditarPaquetes" asp-route-id="@x.PaqueteId" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
+                                    <a asp-action="DetallesPaquete" asp-route-id="@x.PaqueteId" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
+                                    <form asp-action="EliminarPaquete" asp-route-id="@x.PaqueteId" class="d-inline">
+                                        <button type="submit" onclick="confirm('¿Desea eliminar este paquete?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

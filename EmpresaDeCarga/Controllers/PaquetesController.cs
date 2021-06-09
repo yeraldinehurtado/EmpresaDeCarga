@@ -1,6 +1,7 @@
 ﻿using EmpresaDeCarga.Models.Abstract;
 using EmpresaDeCarga.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +12,35 @@ namespace EmpresaDeCarga.Controllers
     public class PaquetesController : Controller
     {
         private readonly IPaqueteService _paqueteService;
+        private readonly ITransportadoraService _transportadoraService;
+        private readonly IEstadosService _estadosService;
 
-        public PaquetesController(IPaqueteService paqueteService)
+        public PaquetesController(IPaqueteService paqueteService, ITransportadoraService transportadoraService, IEstadosService estadosService)
         {
             _paqueteService = paqueteService;
+            _transportadoraService = transportadoraService;
+            _estadosService = estadosService;
         }
 
         [HttpGet]
         public async Task <IActionResult> IndexPaquetes()
         {
-            var listaPaquetes = await _paqueteService.ObtenerPaquetes();
-            return View(await _paqueteService.ObtenerPaquetes());
+            var listaPaquetes = await _paqueteService.ObtenerPaquete();
+            return View(await _paqueteService.ObtenerPaquete());
         }
 
         [HttpGet]
-        public IActionResult RegistrarPaquetes()
+        public async Task<IActionResult> RegistrarPaquetes()
         {
+            ViewData["ListaTransportadora"] = new SelectList(await _transportadoraService.ObtenerTransportadoras(), "TransportadoraId", "Nombre");
+            ViewData["ListaEstados"] = new SelectList(await _estadosService.ObtenerEstados(), "EstadoId", "Nombre");
             return View();
         }
 
         [HttpPost]
         public async Task <IActionResult> RegistrarPaquetes(Paquete paquete)
         {
+            
             if (ModelState.IsValid) 
             {
                 try
@@ -54,14 +62,14 @@ namespace EmpresaDeCarga.Controllers
         }
 
         [HttpGet]
-        public async Task <IActionResult> EditarPaquetes(string? id)
+        public async Task<IActionResult> EditarPaquetes(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return RedirectToAction("IndexPaquetes");
             }
 
-            var paquete = await _paqueteService.ObtenerPaquetePorId(id);
+            var paquete = await _paqueteService.ObtenerPaqueteId(id.Value);
 
             if (paquete == null)
                 return NotFound();
@@ -69,13 +77,13 @@ namespace EmpresaDeCarga.Controllers
             return View(paquete);
         }
         [HttpPost]
-        public async Task<IActionResult> EditarPaquetes(string? id,Paquete paquete)
+        public async Task<IActionResult> EditarPaquetes(int? id, Paquete paquete)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _paqueteService.EditarPaquete(paquete);
+                    await _paqueteService.EditarPaquetes(paquete);
                     return RedirectToAction("IndexPaquetes");
                 }
                 catch (Exception)
@@ -88,21 +96,21 @@ namespace EmpresaDeCarga.Controllers
             {
                 return View(paquete);
             }
-                
+
         }
 
-        public async Task<IActionResult> DetallesPaquete(string? id)
+        public async Task<IActionResult> DetallesPaquete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            return View(await _paqueteService.ObtenerPaquetePorId(id));
+            return View(await _paqueteService.ObtenerPaqueteId(id.Value));
         }
 
         [HttpPost]
-        public async Task<IActionResult> EliminarPaquete(string id)
+        public async Task<IActionResult> EliminarPaquete(int id)
         {
             try
             {

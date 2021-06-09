@@ -8,10 +8,10 @@ namespace EmpresaDeCarga.Models.Abstract
 {
     public interface IPaqueteService
     {
-        Task<IEnumerable<Paquete>> ObtenerPaquetes();
+        Task<IEnumerable<Paquete>> ObtenerPaquete();
         Task GuardarPaquete(Paquete paquete);
-        Task<Paquete> ObtenerPaquetePorId(string id);
-        Task EditarPaquete(Paquete paquete);
-        Task EliminarPaquete(string id);
+        Task<Paquete> ObtenerPaqueteId(int id);
+        Task EditarPaquetes(Paquete paquete);
+        Task EliminarPaquete(int id);
     }
 }
