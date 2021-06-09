@@ -17,6 +17,5 @@ namespace EmpresaDeCarga.Models.DAL
         public DbSet<Cliente> clientes { get; set; }
         public DbSet<Paquete> paquetes { get; set; }
         public DbSet<Transportadora> transportadoras { get; set; }
-        public DbSet<Estado> estados { get; set; }
     }
 }

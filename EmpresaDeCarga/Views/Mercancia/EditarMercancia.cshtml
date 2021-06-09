@@ -1,0 +1,40 @@
+﻿@model EmpresaDeCarga.Models.Entities.Mercancia
+
+@{
+    ViewData["Title"] = "EditarMercancia";
+}
+
+@section Styles{
+    <style>
+        .editar {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 10%;
+        }
+    </style>
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="editar">
+            <h1>Editar mercancia</h1>
+            <hr />
+            <form asp-action="EditarMercancia">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MercanciaId" />
+                <div class="form-group">
+                    <label asp-for="TipoMercancia" class="control-label"></label>
+                    <input asp-for="TipoMercancia" class="form-control" />
+                    <span asp-validation-for="TipoMercancia" class="text-danger"></span>
+                </div>
+            </form>
+            <div>
+                <a asp-action="IndexMercancia">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -33,6 +33,9 @@ namespace EmpresaDeCarga.Controllers
         public async Task<IActionResult> RegistrarClientes(Cliente cliente)
         {
             await _clienteService.GuardarCliente(cliente);
+            TempData["Accion"] = "GuardarCliente";
+            TempData["Mensaje"] = "Cliente guardado con éxito.";
+
             return RedirectToAction("IndexClientes");
         }
 
@@ -56,16 +59,22 @@ namespace EmpresaDeCarga.Controllers
                 {
                     if (id != cliente.CasilleroId)
                     {
-                        return NotFound();
+                        TempData["Accion"] = "Error";
+                        TempData["Mensaje"] = "Hubo un error realizando la operación";
+                        return RedirectToAction("IndexClientes");
                     }
                     try
                     {
                         await _clienteService.EditarClientes(cliente);
+                        TempData["Accion"] = "EditarCliente";
+                        TempData["Mensaje"] = "Cliente editado con éxito.";
                         return RedirectToAction("IndexClientes");
                     }
                     catch (Exception)
                     {
-                        throw;
+                        TempData["Accion"] = "Error";
+                        TempData["Mensaje"] = "Hubo un error realizando la operación";
+                        return RedirectToAction("IndexClientes");
                     }
                 }
             }
@@ -83,7 +92,9 @@ namespace EmpresaDeCarga.Controllers
                 return View(await _clienteService.ObtenerClienteId(id.Value));
             }
 
-            return NotFound();
+            TempData["Accion"] = "Error";
+            TempData["Mensaje"] = "Hubo un error realizando la operación";
+            return RedirectToAction("IndexClientes");
         }
 
         [HttpPost]
@@ -91,12 +102,15 @@ namespace EmpresaDeCarga.Controllers
         {
             try
             {
+                TempData["Accion"] = "Confirmación";
                 await _clienteService.EliminarCliente(id);
                 return RedirectToAction(nameof(IndexClientes));
             }
             catch (Exception)
             {
-                return NotFound();
+                TempData["Accion"] = "Error";
+                TempData["Mensaje"] = "Hubo un error realizando la operación";
+                return RedirectToAction("IndexClientes");
             }
 
         }

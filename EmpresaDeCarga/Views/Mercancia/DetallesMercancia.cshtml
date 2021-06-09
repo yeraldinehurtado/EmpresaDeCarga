@@ -1,0 +1,33 @@
+﻿
+@model EmpresaDeCarga.Models.Entities.Mercancia
+
+@{
+    ViewData["Title"] = "DetallesMercancia";
+}
+
+@section Styles{
+    <style>
+        .detalle {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 20%;
+        }
+    </style>
+}
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="detalle">
+            <h2>Detalle de la mercancia</h2>
+            <hr />
+            <form asp-route-id="@Model.MercanciaId">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Nombre: @Model.TipoMercancia</label>
+                </div>
+                <a asp-action="EditarMercancia" asp-route-id="@Model.MercanciaId">Editar</a> |
+                <a asp-action="IndexMercancia">Volver</a>
+            </form>
+        </div>
+    </div>
+</div>
