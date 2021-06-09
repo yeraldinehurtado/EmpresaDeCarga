@@ -34,12 +34,12 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="NombreCliente" class="control-label"></label>
-                    <input asp-for="NombreCliente" class="form-control" />
+                    <select asp-items="ViewBag.ListaClientes" asp-for="NombreCliente" class="form-control"></select>
                     <span asp-validation-for="NombreCliente" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="EstadoId" class="control-label"></label>
-                    <input asp-for="EstadoId" class="form-control" />
+                    <select asp-items="ViewBag.ListaEstados" asp-for="EstadoId" class="form-control"></select>
                     <span asp-validation-for="EstadoId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -49,12 +49,12 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="EmpresaUsa" class="control-label"></label>
-                    <input asp-for="EmpresaUsa" class="form-control" />
+                    <select asp-items="ViewBag.ListaTransportadora" asp-for="EmpresaUsa" class="form-control"></select>
                     <span asp-validation-for="EmpresaUsa" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="TipoMercancia" class="control-label"></label>
-                    <input asp-for="TipoMercancia" class="form-control" />
+                    <select asp-items="ViewBag.ListaMercancias" asp-for="TipoMercancia" class="form-control"></select>
                     <span asp-validation-for="TipoMercancia" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="EmpresaCol" class="control-label"></label>
-                    <input asp-for="EmpresaCol" class="form-control" />
+                    select asp-items="ViewBag.ListaTransportadora" asp-for="EmpresaCol" class="form-control"></select>
                     <span asp-validation-for="EmpresaCol" class="text-danger"></span>
                 </div>
                 <div class="form-group">

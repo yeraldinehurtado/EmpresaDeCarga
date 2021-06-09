@@ -38,6 +38,7 @@ namespace EmpresaDeCarga
 
             services.AddScoped<ITransportadoraService, TransportadoraService>();
             services.AddScoped<IEstadosService, EstadosService>();
+            services.AddScoped<IMercanciaService, MercanciaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

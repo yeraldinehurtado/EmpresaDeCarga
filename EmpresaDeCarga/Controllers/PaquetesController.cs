@@ -14,12 +14,16 @@ namespace EmpresaDeCarga.Controllers
         private readonly IPaqueteService _paqueteService;
         private readonly ITransportadoraService _transportadoraService;
         private readonly IEstadosService _estadosService;
+        private readonly IMercanciaService _mercanciaService;
+        private readonly IClienteService _clienteService;
 
-        public PaquetesController(IPaqueteService paqueteService, ITransportadoraService transportadoraService, IEstadosService estadosService)
+        public PaquetesController(IPaqueteService paqueteService, ITransportadoraService transportadoraService, IEstadosService estadosService, IMercanciaService mercanciaService, IClienteService clienteService)
         {
             _paqueteService = paqueteService;
             _transportadoraService = transportadoraService;
             _estadosService = estadosService;
+            _mercanciaService = mercanciaService;
+            _clienteService = clienteService;
         }
 
         [HttpGet]
@@ -34,6 +38,8 @@ namespace EmpresaDeCarga.Controllers
         {
             ViewData["ListaTransportadora"] = new SelectList(await _transportadoraService.ObtenerTransportadoras(), "TransportadoraId", "Nombre");
             ViewData["ListaEstados"] = new SelectList(await _estadosService.ObtenerEstados(), "EstadoId", "Nombre");
+            ViewData["ListaMercancias"] = new SelectList(await _mercanciaService.ObtenerMercancia(), "MercanciaId", "TipoMercancia");
+            ViewData["ListaClientes"] = new SelectList(await _clienteService.ObtenerCliente(), "CasilleroId", "Nombre");
             return View();
         }
 
