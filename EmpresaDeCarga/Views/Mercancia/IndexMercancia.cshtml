@@ -1,0 +1,109 @@
+﻿@model IEnumerable<EmpresaDeCarga.Models.Entities.Mercancia>
+
+@{
+    ViewData["Title"] = "IndexMercancia";
+}
+
+@section Styles{
+    <style>
+        .contenido {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin-bottom: 5%;
+        }
+
+        tr td {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            color: #08006f;
+        }
+    </style>
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="m-0 row justify-content-center align-items-baseline">
+            <div class="contenido">
+                <div class="botonCrear col-12 p-3 text-center accent-teal">
+                    <br />
+                    <p>
+                        <a asp-action="RegistrarMercancia" class="btn btn-outline-success"><i class="fas fa-plus"></i> Agregar mercancia</a>
+                    </p>
+                    <br />
+                </div>
+                <div>
+                    <table class="table table-striped table-bordered col-12" id="tabla">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MercanciaId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TipoMercancia)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelx => x.MercanciaId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelx => x.TipoMercancia)
+                                    </td>
+                                    <td>
+                                        <a asp-action="EditarMercancia" asp-route-id="@x.MercanciaId" class="btn alert-primary"><i class="fas fa-edit"></i></a> |
+                                        <a asp-action="DetallesMercancia" asp-route-id="@x.MercanciaId" class="btn alert-secondary"><i class="fas fa-info-circle"></i></a> |
+                                        <form asp-action="EliminarMercancia" asp-route-id="@x.MercanciaId" class="d-inline">
+                                            <button type="submit" onclick="confirm('¿Desea eliminar esta mercancia?')" class="btn alert-danger"><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/js/tabla.js"></script>
+    <script>
+        @if (TempData["Mensaje"] != null && TempData["Accion"].ToString().Equals("GuardarMercancia")) { <text>
+
+            Swal.fire({
+            title: "Guardar mercancia",
+            icon: 'success',
+            html: "@TempData["Mensaje"]"
+            })
+        </text>
+        }
+
+        @if (TempData["Mensaje"] != null && TempData["Accion"].ToString().Equals("EditarMercancia")) { <text>
+
+            Swal.fire({
+            title: "Editar mercancia",
+            icon: 'success',
+            html: "@TempData["Mensaje"]"
+            })
+        </text>
+        }
+
+        @if (TempData["Mensaje"] != null && TempData["Accion"].ToString().Equals("Error")) { <text>
+
+            Swal.fire({
+            title: "Error",
+            icon: 'error',
+            html: "@TempData["Mensaje"]"
+            })
+        </text>
+        }
+
+
+    </script>
+}

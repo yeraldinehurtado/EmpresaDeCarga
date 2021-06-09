@@ -1,5 +1,4 @@
-﻿using EmpresaDeCarga.Migrations;
-using EmpresaDeCarga.Models.Abstract;
+﻿using EmpresaDeCarga.Models.Abstract;
 using EmpresaDeCarga.Models.DAL;
 using EmpresaDeCarga.Models.Entities;
 using Microsoft.EntityFrameworkCore;
