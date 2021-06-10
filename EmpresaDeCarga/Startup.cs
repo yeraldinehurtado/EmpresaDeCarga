@@ -37,7 +37,7 @@ namespace EmpresaDeCarga
             services.AddScoped<IPaqueteService, PaqueteService>();
 
             services.AddScoped<ITransportadoraService, TransportadoraService>();
-
+            services.AddScoped<IEstadosService, EstadosService>();
             services.AddScoped<IMercanciaService, MercanciaService>();
         }
 
