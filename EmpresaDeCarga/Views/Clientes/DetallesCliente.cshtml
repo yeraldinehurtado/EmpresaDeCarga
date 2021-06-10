@@ -1,5 +1,4 @@
-﻿
-@model EmpresaDeCarga.Models.Entities.Cliente
+﻿@model EmpresaDeCarga.Models.Entities.Paquete
 
 @{
     ViewData["Title"] = "DetallesCliente";
@@ -18,20 +17,22 @@
 <div class="row">
     <div class="col-md-6">
         <div class="detalle">
-            <h2>Detalle del cliente</h2>
+            <h2>Envío.</h2>
             <hr />
-            <form asp-route-id="@Model.CasilleroId">
+            <form asp-route-id="@Model.Codigo">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label class="control-label">Nombre: @Model.Nombre</label>
+                    <label class="control-label">Código: @Model.Codigo</label>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Correo: @Model.Correo</label>
+                    <label class="control-label">Peso: @Model.PesoLibras</label>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Dirección de entrega: @Model.DireccionEntrega</label>
+                    <label class="control-label">Estado: @Model.EstadoId</label>
                 </div>
-                <a asp-action="EditarClientes" asp-route-id="@Model.CasilleroId">Editar</a> |
+                <div class="form-group">
+                    <label class="control-label">Total: @Model.ValorPago</label>
+                </div>
                 <a asp-action="IndexClientes">Volver</a>
             </form>
         </div>
