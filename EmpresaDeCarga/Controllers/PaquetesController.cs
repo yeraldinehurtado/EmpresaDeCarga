@@ -70,6 +70,10 @@ namespace EmpresaDeCarga.Controllers
         [HttpGet]
         public async Task<IActionResult> EditarPaquetes(int? id)
         {
+            ViewData["ListaTransportadora"] = new SelectList(await _transportadoraService.ObtenerTransportadoras(), "TransportadoraId", "Nombre");
+            ViewData["ListaEstados"] = new SelectList(await _estadosService.ObtenerEstados(), "EstadoId", "Nombre");
+            ViewData["ListaMercancias"] = new SelectList(await _mercanciaService.ObtenerMercancia(), "MercanciaId", "TipoMercancia");
+            ViewData["ListaClientes"] = new SelectList(await _clienteService.ObtenerCliente(), "CasilleroId", "Nombre");
             if (id == null)
             {
                 return RedirectToAction("IndexPaquetes");

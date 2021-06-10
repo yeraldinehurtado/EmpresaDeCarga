@@ -16,7 +16,7 @@
 }
 
 
-<div class="m-0 row justify-content-center align-items-center">
+<div class="row">
     <div class="col-md-6">
         <div class="detalle">
             <h2>Detalle del paquete</h2>
@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <label class="control-label">Valor pago: @Model.ValorPago</label>
                 </div>
-                <a asp-action="EditarPaquetes" asp-route-id="@Model.Codigo">Editar</a> |
+                <a asp-action="EditarPaquetes" asp-route-id="@Model.PaqueteId">Editar</a> |
                 <a asp-action="IndexPaquetes">Volver</a>
             </form>
         </div>
