@@ -18,6 +18,7 @@ namespace EmpresaDeCarga.Models.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)      
         {
             base.OnModelCreating(modelBuilder); //esto se ejecuta al momento que se está creando la base de datos
+            modelBuilder.Seed();
         }
 
         public DbSet<Cliente> clientes { get; set; }
